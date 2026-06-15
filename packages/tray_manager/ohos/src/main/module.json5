@@ -1,0 +1,11 @@
+{
+  "module": {
+    "name": "tray_manager",
+    "type": "har",
+    "deviceTypes": [
+      "2in1",
+      "default",
+      "tablet"
+    ]
+  }
+}

@@ -111,6 +111,7 @@ class TrayManager {
   }) async {
     final Map<String, dynamic> arguments = {
       'id': shortid.generate(),
+      'assetPath': iconPath,
       'iconPath': path.joinAll([
         path.dirname(Platform.resolvedExecutable),
         'data/flutter_assets',
@@ -213,11 +214,15 @@ class TrayManager {
     if (resultData == null) {
       return null;
     }
+    final x = (resultData['x'] as num).toDouble();
+    final y = (resultData['y'] as num).toDouble();
+    final width = (resultData['width'] as num).toDouble();
+    final height = (resultData['height'] as num).toDouble();
     return Rect.fromLTWH(
-      resultData['x'],
-      resultData['y'],
-      resultData['width'],
-      resultData['height'],
+      x,
+      y,
+      width,
+      height,
     );
   }
 }
