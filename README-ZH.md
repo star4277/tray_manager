@@ -29,6 +29,7 @@
 - [快速开始](#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B)
   - [安装](#%E5%AE%89%E8%A3%85)
     - [Linux requirements](#linux-requirements)
+    - [HarmonyOS Desktop requirements](#harmonyos-desktop-requirements)
   - [用法](#%E7%94%A8%E6%B3%95)
     - [监听事件](#%E7%9B%91%E5%90%AC%E4%BA%8B%E4%BB%B6)
 - [谁在用使用它？](#%E8%B0%81%E5%9C%A8%E7%94%A8%E4%BD%BF%E7%94%A8%E5%AE%83)
@@ -40,15 +41,15 @@
 
 ## 平台支持
 
-| Linux | macOS | Windows |
-| :---: | :---: | :-----: |
-|  ✔️   |  ✔️   |   ✔️    |
+| Linux | macOS | Windows | HarmonyOS Desktop |
+| :---: | :---: | :-----: | :----------------: |
+|  ✔️   |  ✔️   |   ✔️    |         ✔️         |
 
 ## 截图
 
-| macOS                                                                                     | Linux                                                                                     | Windows                                                                                          |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| ![](https://github.com/leanflutter/tray_manager/blob/main/screenshots/macos.png?raw=true) | ![](https://github.com/leanflutter/tray_manager/blob/main/screenshots/linux.png?raw=true) | ![image](https://github.com/leanflutter/tray_manager/blob/main/screenshots/windows.png?raw=true) |
+| macOS                                                                                     | Linux                                                                                     | Windows                                                                                          | HarmonyOS Desktop                                                                                     |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
+| ![](https://github.com/leanflutter/tray_manager/blob/main/screenshots/macos.png?raw=true) | ![](https://github.com/leanflutter/tray_manager/blob/main/screenshots/linux.png?raw=true) | ![image](https://github.com/leanflutter/tray_manager/blob/main/screenshots/windows.png?raw=true) | ![](https://github.com/leanflutter/tray_manager/blob/main/screenshots/harmony-os.png?raw=true) |
 
 ## 已知问题
 
@@ -108,6 +109,12 @@ sudo apt-get install libayatana-appindicator3-dev
 ```
 sudo apt-get install appindicator3-0.1 libappindicator3-dev
 ```
+
+#### HarmonyOS Desktop requirements
+
+HarmonyOS Desktop 支持使用系统状态栏服务，需要设备具备 `SystemCapability.PCService.StatusBarManager` 能力。不具备该能力的设备无法将托盘图标添加到状态栏。
+
+插件注册在 Flutter 的 `ohos` 目标下。HarmonyOS Desktop 工程配置可以参考示例应用的 `ohos` 项目。
 
 ### 用法
 
@@ -208,15 +215,16 @@ class _HomePageState extends State<HomePage> with TrayListener {
 
 ### TrayManager
 
-| Method           | Description                      | Linux | macOS | Windows |
-| ---------------- | -------------------------------- | ----- | ----- | ------- |
-| destroy          | 立即销毁托盘图标                 | ✔️    | ✔️    | ✔️      |
-| setIcon          | 设置与此托盘图标相关的图片。     | ✔️    | ✔️    | ✔️      |
-| setIconPosition  | 设置托盘图标的图标位置。         | ➖    | ✔️    | ➖      |
-| setToolTip       | 设置此托盘图标的悬停文本。       | ➖    | ✔️    | ✔️      |
-| setContextMenu   | 设置此图标的上下文菜单。         | ✔️    | ✔️    | ✔️      |
-| popUpContextMenu | 弹出托盘图标的上下文菜单。       | ➖    | ✔️    | ✔️      |
-| getBounds        | 返回 `Rect` 这个托盘图标的边界。 | ➖    | ✔️    | ✔️      |
+| Method           | Description                      | Linux | macOS | Windows | HarmonyOS Desktop |
+| ---------------- | -------------------------------- | ----- | ----- | ------- | ----------------- |
+| destroy          | 立即销毁托盘图标                 | ✔️    | ✔️    | ✔️      | ✔️                |
+| setIcon          | 设置与此托盘图标相关的图片。     | ✔️    | ✔️    | ✔️      | ✔️                |
+| setIconPosition  | 设置托盘图标的图标位置。         | ➖    | ✔️    | ➖      | ➖                |
+| setToolTip       | 设置此托盘图标的悬停文本。       | ➖    | ✔️    | ✔️      | ✔️                |
+| setTitle         | 设置此托盘图标的标题。           | ✔️    | ✔️    | ➖      | ✔️                |
+| setContextMenu   | 设置此图标的上下文菜单。         | ✔️    | ✔️    | ✔️      | ✔️                |
+| popUpContextMenu | 弹出托盘图标的上下文菜单。       | ➖    | ✔️    | ✔️      | ➖                |
+| getBounds        | 返回 `Rect` 这个托盘图标的边界。 | ➖    | ✔️    | ✔️      | ✔️                |
 
 ## 许可证
 

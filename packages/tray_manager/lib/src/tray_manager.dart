@@ -190,6 +190,8 @@ class TrayManager {
   ///
   /// [bringAppToFront] If true, the app will be brought to the front when the
   /// context menu is shown. Only works on Windows.
+  /// Unsupported HarmonyOS
+  /// @platforms macos, linux, windows
   Future<void> popUpContextMenu({
     @Deprecated(
       'This parameter is only supported on Windows and will be removed in the future.',

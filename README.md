@@ -1,7 +1,6 @@
 > **⚠️ Migration Notice**: This plugin is being migrated to [libnativeapi/nativeapi-flutter](https://github.com/libnativeapi/nativeapi-flutter)
 >
 > The new version is based on a unified C++ core library ([libnativeapi/nativeapi](https://github.com/libnativeapi/nativeapi)), providing more complete and consistent cross-platform native API support.
-r
 
 [![pub version][pub-image]][pub-url] [![][discord-image]][discord-url] ![][visits-count-image]
 
@@ -28,6 +27,7 @@ English | [简体中文](./README-ZH.md)
 - [Quick Start](#quick-start)
   - [Installation](#installation)
     - [Linux requirements](#linux-requirements)
+    - [HarmonyOS Desktop requirements](#harmonyos-desktop-requirements)
   - [Usage](#usage)
     - [Listening events](#listening-events)
 - [Who's using it?](#whos-using-it)
@@ -39,15 +39,15 @@ English | [简体中文](./README-ZH.md)
 
 ## Platform Support
 
-| Linux | macOS | Windows |
-| :---: | :---: | :-----: |
-|  ✔️   |  ✔️   |   ✔️    |
+| Linux | macOS | Windows | HarmonyOS Desktop |
+| :---: | :---: | :-----: | :----------------: |
+|  ✔️   |  ✔️   |   ✔️    |         ✔️         |
 
 ## Screenshots
 
-| macOS                                                                                     | Linux                                                                                     | Windows                                                                                          |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| ![](https://github.com/leanflutter/tray_manager/blob/main/screenshots/macos.png?raw=true) | ![](https://github.com/leanflutter/tray_manager/blob/main/screenshots/linux.png?raw=true) | ![image](https://github.com/leanflutter/tray_manager/blob/main/screenshots/windows.png?raw=true) |
+| macOS                                                                                     | Linux                                                                                     | Windows                                                                                          | HarmonyOS Desktop                                                                                     |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
+| ![](https://github.com/leanflutter/tray_manager/blob/main/screenshots/macos.png?raw=true) | ![](https://github.com/leanflutter/tray_manager/blob/main/screenshots/linux.png?raw=true) | ![image](https://github.com/leanflutter/tray_manager/blob/main/screenshots/windows.png?raw=true) | ![](https://github.com/leanflutter/tray_manager/blob/main/screenshots/harmony-os.png?raw=true) |
 
 ## Known Issues
 
@@ -107,6 +107,12 @@ Or
 ```
 sudo apt-get install appindicator3-0.1 libappindicator3-dev
 ```
+
+#### HarmonyOS Desktop requirements
+
+HarmonyOS Desktop support uses the system status bar service and requires `SystemCapability.PCService.StatusBarManager`. Devices without this capability cannot add the tray icon to the status bar.
+
+The plugin is registered under Flutter's `ohos` target. See the example app's `ohos` project for the HarmonyOS Desktop setup.
 
 ### Usage
 
@@ -208,15 +214,16 @@ class _HomePageState extends State<HomePage> with TrayListener {
 
 ### TrayManager
 
-| Method           | Description                                    | Linux | macOS | Windows |
-| ---------------- | ---------------------------------------------- | ----- | ----- | ------- |
-| destroy          | Destroys the tray icon immediately.            | ✔️    | ✔️    | ✔️      |
-| setIcon          | Sets the image associated with this tray icon. | ✔️    | ✔️    | ✔️      |
-| setIconPosition  | Sets the icon position of the tray icon.       | ➖    | ✔️    | ➖      |
-| setToolTip       | Sets the hover text for this tray icon.        | ➖    | ✔️    | ✔️      |
-| setContextMenu   | Sets the context menu for this icon.           | ✔️    | ✔️    | ✔️      |
-| popUpContextMenu | Pops up the context menu of the tray icon.     | ➖    | ✔️    | ✔️      |
-| getBounds        | Returns `Rect` The bounds of this tray icon.   | ➖    | ✔️    | ✔️      |
+| Method           | Description                                    | Linux | macOS | Windows | HarmonyOS Desktop |
+| ---------------- | ---------------------------------------------- | ----- | ----- | ------- | ----------------- |
+| destroy          | Destroys the tray icon immediately.            | ✔️    | ✔️    | ✔️      | ✔️                |
+| setIcon          | Sets the image associated with this tray icon. | ✔️    | ✔️    | ✔️      | ✔️                |
+| setIconPosition  | Sets the icon position of the tray icon.       | ➖    | ✔️    | ➖      | ➖                |
+| setToolTip       | Sets the hover text for this tray icon.        | ➖    | ✔️    | ✔️      | ✔️                |
+| setTitle         | Sets the title for this tray icon.             | ✔️    | ✔️    | ➖      | ✔️                |
+| setContextMenu   | Sets the context menu for this icon.           | ✔️    | ✔️    | ✔️      | ✔️                |
+| popUpContextMenu | Pops up the context menu of the tray icon.     | ➖    | ✔️    | ✔️      | ➖                |
+| getBounds        | Returns `Rect` The bounds of this tray icon.   | ➖    | ✔️    | ✔️      | ✔️                |
 
 ## License
 
