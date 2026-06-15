@@ -47,7 +47,7 @@ English | [简体中文](./README-ZH.md)
 
 | macOS                                                                                     | Linux                                                                                     | Windows                                                                                          | HarmonyOS Desktop                                                                                     |
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
-| ![](https://github.com/leanflutter/tray_manager/blob/main/screenshots/macos.png?raw=true) | ![](https://github.com/leanflutter/tray_manager/blob/main/screenshots/linux.png?raw=true) | ![image](https://github.com/leanflutter/tray_manager/blob/main/screenshots/windows.png?raw=true) | ![](https://github.com/leanflutter/tray_manager/blob/main/screenshots/harmony-os.png?raw=true) |
+| ![](https://github.com/star4277/tray_manager/blob/main/screenshots/macos.png?raw=true) | ![](https://github.com/star4277/tray_manager/blob/main/screenshots/linux.png?raw=true) | ![image](https://github.com/star4277/tray_manager/blob/main/screenshots/windows.png?raw=true) | ![](https://github.com/star4277/tray_manager/blob/main/screenshots/harmony-os.png?raw=true) |
 
 ## Known Issues
 
